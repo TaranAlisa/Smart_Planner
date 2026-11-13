@@ -10,7 +10,8 @@ app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 
 def main():
     app.register_blueprint(api.blueprint)
-    db_session.global_init(f'data/main.db')
+
+    db_session.global_init(f'sqlite:///data/main.sqlite')
     app.run(host="0.0.0.0", port=8080)
 
 
